@@ -1,13 +1,8 @@
-## Electron app.
-### Basic setup with React, Typescript and Webpack.
+## Kitchen Command Center
+### Using React, Typescript, Electron, and Webpack
 
 To run this project.
 
-- Clone this repo
-
-```bash
-  git clone https://github.com/elisealcala/electron-react-ts.git
-```
 
 - Install the dependencies
 

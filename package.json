@@ -1,5 +1,5 @@
 {
-  "name": "electron-react-ts",
+  "name": "KitchenCommandCenter",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/main.js",
@@ -16,7 +16,8 @@
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
     "babel-loader": "^8.1.0",
-    "electron": "^8.2.2",
+    "electron": "^8.2.4",
+    "eslint": "^7.4.0",
     "html-webpack-plugin": "^4.2.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
