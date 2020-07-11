@@ -19,3 +19,4 @@ To run this project.
 ```bash
   npm run dev:electron
 ```
+- Electron Packager requires Node >= 10.12.0

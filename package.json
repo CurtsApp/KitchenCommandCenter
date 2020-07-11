@@ -1,6 +1,7 @@
 {
-  "name": "KitchenCommandCenter",
-  "version": "1.0.0",
+  "name": "kitchen-command-center",
+  "productName": "KitchenCommandCenter",
+  "version": "0.0.1",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -8,8 +9,7 @@
     "dev:react": "NODE_ENV=development webpack-dev-server --config webpack.react.config.js --mode development"
   },
   "keywords": [],
-  "author": "elisealcala",
-  "license": "ISC",
+  "author": "curtsapp",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
@@ -17,6 +17,7 @@
     "@babel/preset-typescript": "^7.9.0",
     "babel-loader": "^8.1.0",
     "electron": "^8.2.4",
+    "electron-packager": "^15.0.0",
     "html-webpack-plugin": "^4.2.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
