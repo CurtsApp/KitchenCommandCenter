@@ -12,7 +12,7 @@ const App = () => {
       <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       <div>
           <AppBar color="primary" position="static">
-              <h1>Header check</h1>
+              <h1>Welcome</h1>
           </AppBar>
           <h1 className={"test"}>Please do anything</h1>
       </div>

@@ -1,15 +1,27 @@
+:root {
+    --black: #383F51;
+    --white: #DDDBF1;
+    --blue: #3C4F76;
+    --tan: #D1BEB0;
+    --gray: #AB9F9D;
+
+    --primary:#3C4f76;
+    --pLight:#697BA4;
+    --pDark:#0c274a;
+    --pText:#ffffff;
+    --secondary:#FFAB91;
+    --sLight:#ffddc1;
+    --sDark:#c97b63;
+    --sText:#000000;
+    --background: #DDDBF1;
+}
+
 body {
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: blueviolet;
+    background-color: var(--background);
+    color: var(--pText);
 }
 
-h1 {
-    font-family: "Roboto", sans-serif;
-    color: aqua;
-}
 
-.test {
-    color: chartreuse;
-}
