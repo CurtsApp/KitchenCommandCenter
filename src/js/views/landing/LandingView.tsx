@@ -15,11 +15,10 @@ export class LandingView extends View<Props, ViewState> {
 
     render() {
         return (
-            <div>
-                <Header title={"Welcome"}/>
+            <div className={"view"}>
+                <Header title={"Welcome"} nav={this.props.nav}/>
                 <Button onClick={() => {
-                    console.log("Click!")
-                    this.props.nav.changeView(ViewType.Recipe);
+                    this.props.nav.navTo(ViewType.Recipe);
                 }}>Your Recipes</Button>
                 <Button>New Recipe</Button>
             </div>

@@ -17,7 +17,7 @@ export class RecipeView extends View<Props, ViewState> {
     render() {
         return (
             <div>
-                <Header title={"Your Recipes"}/>
+                <Header title={"Your Recipes"} nav={this.props.nav}/>
                 <List>
                     <ListItem button>
                         Recipe 1

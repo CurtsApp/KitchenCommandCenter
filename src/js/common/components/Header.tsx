@@ -1,8 +1,10 @@
-import {AppBar} from "@material-ui/core";
+import {AppBar, Button, IconButton, Toolbar, Typography} from "@material-ui/core";
 import React from "react";
+import {Navigator} from "../utils/navigation/Navigator";
 
 interface Props {
     title: string;
+    nav: Navigator;
 }
 
 export class Header extends React.Component<Props> {
@@ -14,7 +16,20 @@ export class Header extends React.Component<Props> {
     render() {
         return (
             <AppBar color="primary" position="static">
-                <h1>{this.props.title}</h1>
+                <Toolbar>
+                    <Button color={"inherit"}
+                            onClick={() => this.props.nav.navigateBack()}
+                            disabled={!this.props.nav.isBackAvailable()}>
+                        Back
+                    </Button>
+                    <Button color={"inherit"}
+                            onClick={() => this.props.nav.navigateForward()}
+                            disabled={!this.props.nav.isForwardAvailable()}>
+                        Forward
+                    </Button>
+                    <Typography className={"title"} variant={"h6"}>{this.props.title}</Typography>
+                </Toolbar>
+
             </AppBar>);
     }
 

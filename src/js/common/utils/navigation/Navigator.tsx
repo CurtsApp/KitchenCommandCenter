@@ -1,4 +1,4 @@
-import {DEFAULT_VIEW, ViewDetails, ViewType} from "./NavUtil";
+import {DEFAULT_VIEW, NavFrame, ViewDetails, ViewType} from "./NavUtil";
 import React from "react";
 import {LandingView} from "../../../views/landing/LandingView";
 import {RecipeView} from "../../../views/recipe/RecipeView";
@@ -12,33 +12,71 @@ const VIEWS: ViewDetails[] = [{
 }];
 
 export class Navigator {
-    currentView: ViewType;
-    forceRedraw: () => void;
+    private readonly forceRedraw: () => void;
+    private frames: NavFrame[];
+    private activeFrameIndex: number;
 
     constructor(redraw: () => void) {
-        this.currentView = DEFAULT_VIEW;
         this.forceRedraw = redraw;
+        this.frames = [];
+        this.activeFrameIndex = -1;
+        this.navTo(DEFAULT_VIEW);
     }
 
-    changeView(viewType: ViewType) {
-        if(viewType !== this.currentView) {
-            this.currentView = viewType;
+    navTo(viewType: ViewType) {
+        const currentFrame = this.getCurrentFrame();
+        if(currentFrame === undefined || viewType !== currentFrame.type) {
+            this.frames = this.frames.slice(0, this.activeFrameIndex + 1);
+            this.pushToHistory({
+                type: viewType,
+                data: {}
+            });
+            this.activeFrameIndex++;
             this.forceRedraw();
         }
 
     }
-
-    getCurrentView() {
-        return this.getViewDetails(this.currentView).getView(this);
+    public isBackAvailable(): boolean {
+        return this.frames.length > 1;
     }
 
-    getViewDetails(viewType: ViewType): ViewDetails {
+    public isForwardAvailable(): boolean {
+        return this.activeFrameIndex < this.frames.length - 1;
+    }
+
+    public navigateBack() {
+        if(this.isBackAvailable()) {
+            this.activeFrameIndex--;
+            this.forceRedraw();
+        }
+    }
+
+    public navigateForward() {
+        if(this.isForwardAvailable()) {
+            this.activeFrameIndex++;
+            this.forceRedraw();
+        }
+    }
+
+    getCurrentView() {
+        return this.getViewDetails(this.getCurrentFrame().type).getView(this);
+    }
+
+    private getViewDetails(viewType: ViewType): ViewDetails {
         for (const viewDetails of VIEWS) {
             if (viewDetails.type === viewType) {
                 return viewDetails;
             }
         }
         throw new Error("View type not found");
+    }
+
+    private pushToHistory(frame: NavFrame) {
+        this.frames.push(frame);
+    }
+
+    private getCurrentFrame(): NavFrame {
+        return this.frames[this.activeFrameIndex];
     }
 
 }

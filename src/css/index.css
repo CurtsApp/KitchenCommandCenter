@@ -24,4 +24,16 @@ body {
     color: var(--pText);
 }
 
+.view {
+    width: 100%;
+}
+
+.navButton {
+    text-align: left;
+}
+
+.title {
+    text-align: right;
+}
+
 

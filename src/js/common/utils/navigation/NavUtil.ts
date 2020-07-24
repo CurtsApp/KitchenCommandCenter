@@ -7,6 +7,11 @@ export interface ViewDetails {
     getView: (nav: Navigator) => ReactElement<ViewProps>;
 }
 
+export interface NavFrame {
+    type: ViewType;
+    data: any; // This is the model that the view needs 
+}
+
 export enum ViewType {
     Recipe,
     NewRecipe,
