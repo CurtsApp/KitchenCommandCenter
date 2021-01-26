@@ -2,14 +2,18 @@
 
 import json
 
+from Dinner import Dinner, Dinners
+
 with open('Recipes.csv', 'r') as file:
     data = file.read()
     lines = data.split('\n')
     dinners = []
 
     for line in lines:
-        dinners.append(line)
+        dinner = Dinner(line)
+        dinners.append(dinner)
 
+    theDin = Dinners(dinners)
     jsonFile = open('Recipes.json', "w")
-    json.dump(dinners, jsonFile, indent=2)
+    print(theDin.toJSON())
     jsonFile.close()
