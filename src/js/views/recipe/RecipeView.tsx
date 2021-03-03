@@ -1,6 +1,5 @@
 import React from "react";
 import {Header} from "../../common/components/Header";
-import {List, ListItem} from "@material-ui/core";
 import {View, ViewProps, ViewState} from "../View";
 
 
@@ -18,14 +17,14 @@ export class RecipeView extends View<Props, ViewState> {
         return (
             <div>
                 <Header title={"Your Recipes"} nav={this.props.nav}/>
-                <List>
-                    <ListItem button>
+                <ul>
+                    <li>
                         Recipe 1
-                    </ListItem>
-                    <ListItem button>
+                    </li>
+                    <li>
                         Recipe 2
-                    </ListItem>
-                </List>
+                    </li>
+                </ul>
             </div>
         );
 
