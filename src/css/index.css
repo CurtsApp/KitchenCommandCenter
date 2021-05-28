@@ -32,8 +32,22 @@ body {
     text-align: left;
 }
 
-.title {
-    text-align: right;
+.row {
+  display: flex;
+  flex-direction: row;
 }
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 
 
